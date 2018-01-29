@@ -39,14 +39,14 @@ export default class TodosPage extends React.Component {
                     <h1>Todos</h1>
 
                     <input type="text"
-                        placeholder="press enter to add a todo"
-                        value={this.state.headerText}
-                        onChange={(e) => this.setHeaderText(e.target.value)}
-                        onKeyPress={(e) => this.handleKeyPressed(e)}/>
+                           placeholder="press enter to add a todo"
+                           value={this.state.headerText}
+                           onChange={(e) => this.setHeaderText(e.target.value)}
+                           onKeyPress={(e) => this.handleKeyPressed(e)}/>
                 </div>
 
                 <div className="todos-list">
-                    { this.renderTodos() }
+                    {this.renderTodos()}
                 </div>
 
                 <button onClick={this.markAllTodosCompleted.bind(this)}>
@@ -85,19 +85,19 @@ export default class TodosPage extends React.Component {
         return this.state.todos
             .filter(todo => this.state.showCompleted || !todo.completed)
             .map((todo) => {
-            return <TodoItem
-                key={todo.id}
-                text={todo.text}
-                id={todo.id}
-                completed={todo.completed}
-                completeTodo={this.completeTodo.bind(this)}
-                removeTodo={this.removeTodo.bind(this)}
-                setTodoText={this.setTodoText.bind(this)}/>;
-        })
+                return <TodoItem
+                    key={todo.id}
+                    text={todo.text}
+                    id={todo.id}
+                    completed={todo.completed}
+                    completeTodo={this.completeTodo.bind(this)}
+                    removeTodo={this.removeTodo.bind(this)}
+                    setTodoText={this.setTodoText.bind(this)}/>;
+            })
     }
 
     handleKeyPressed(e) {
-        if(e.key === 'Enter') {
+        if (e.key === 'Enter') {
             if (this.state.headerText.length !== 0) {
                 const todo = createTodo(this.state.headerText);
                 this.addTodo(todo);
@@ -144,8 +144,8 @@ export default class TodosPage extends React.Component {
     completeTodo(id, completed) {
         this.setState({
             todos: this.state.todos.map((todo) => {
-                if(todo.id !== id) return todo;
-                return { ...todo, completed }
+                if (todo.id !== id) return todo;
+                return {...todo, completed}
             })
         })
     }

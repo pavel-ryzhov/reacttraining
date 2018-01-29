@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 /**
  * A single todo item on the page.
- * 
+ *
  * The item contains some text, a remove button,
  * and a checkbox to select whether the item has been completed.
  */

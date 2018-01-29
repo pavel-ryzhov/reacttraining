@@ -12,8 +12,8 @@ export default function TodosFooter(props) {
     return <div className="todos-footer">
         <div className="todos-option">
             <input type="checkbox"
-                checked={props.showCompleted}
-                onChange={setShowCompleted}/>Show Completed
+                   checked={props.showCompleted}
+                   onChange={setShowCompleted}/>Show Completed
         </div>
     </div>
 }
