@@ -17,6 +17,10 @@ body * {
   text-align: center;
 }
 
+.todos-count {
+  text-align: center;
+}
+
 .todos-footer {
   margin-top: 5px;
   font-size: 0.8em;

@@ -16,6 +16,9 @@ export default function TodoItem(props) {
 
     const handleCompleted = () => props.completeTodo(id, !completed);
     const handleRemoved = () => props.removeTodo(id);
+    const todoTextUpdated = (e) => {
+        props.setTodoText(id, e.target.value);
+    };
 
     return <div className="todo-item">
         <input
@@ -24,7 +27,13 @@ export default function TodoItem(props) {
             checked={completed}
             onChange={handleCompleted}/>
 
-        <span className="todo-item-text">{ text }</span>
+        <input
+            name={'button-' + id}
+            type="text"
+            className="todo-item-text"
+            onChange={(e) => todoTextUpdated(e)}
+            value={text}>
+        </input>
 
         <a className="icon right" onClick={handleRemoved}>x</a>
     </div>
@@ -35,5 +44,6 @@ TodoItem.propTypes = {
     id: PropTypes.number.isRequired,
     index: PropTypes.number.isRequired,
     removeTodo: PropTypes.func.isRequired,
-    completeTodo: PropTypes.func.isRequired
-}
+    completeTodo: PropTypes.func.isRequired,
+    setTodoText: PropTypes.func.isRequired
+};
