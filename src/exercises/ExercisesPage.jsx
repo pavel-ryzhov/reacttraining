@@ -109,7 +109,7 @@ ExercisesPage.propTypes = {
     bcValue: PropTypes.number.isRequired,
     bcLastUpdatedTime: PropTypes.string.isRequired,
     bcFetching: PropTypes.bool.isRequired
-}
+};
 
 function mapStateToProps(state) {
     return {

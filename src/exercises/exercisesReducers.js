@@ -20,10 +20,13 @@ export default function (state = Imm.Map(), action) {
 }
 
 function incrementCounter(state, action) {
-    return state.set('counter', 0);
+    let counter = state.get('counter');
+    return state.set('counter', counter + 1);
 }
 
 function setBcConversionInput(state, action) {
+
+
     return state.set('input', action.value);
 }
 
