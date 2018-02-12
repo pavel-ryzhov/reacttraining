@@ -1,0 +1,26 @@
+.exercises-page {
+    margin-left: 10px;
+}
+
+.exercises-page p {
+    max-width: 500px;
+}
+
+.exercise {
+    margin-left: 15px;
+    margin-bottom: 30px;
+}
+
+.value-field {
+    padding: 3px 7px;
+    display: inline-block;
+    background-color: beige;
+    border: 1px solid #dfdfc3;
+    margin: 0 5px;
+    font-size: 1.1em;
+}
+
+.input-currency {
+    width: 70px;
+    margin-right: 5px;
+}
