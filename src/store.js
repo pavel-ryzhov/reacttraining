@@ -1,5 +1,5 @@
 import Imm from 'immutable';
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import createSagaMiddleware from 'redux-saga';
 import todosReducers from './todos/todosReducers';
 import exercisesReducers from './exercises/exercisesReducers';
@@ -26,5 +26,5 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 export const store = createStore(reducers,
     initialStore,
     composeEnhancers(applyMiddleware(sagaMiddleware)));
-    
+
 sagaMiddleware.run(rootSagas);

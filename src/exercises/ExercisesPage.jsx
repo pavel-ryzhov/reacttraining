@@ -1,16 +1,9 @@
 import React from 'react';
-import Imm from 'immutable';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import './exercises.css';
 
-import {
-    incrementCounter,
-    setBcConversionInput,
-    fetchLatestBCValue,
-    selectBCCurrency,
-    switchBCConversionDirection
-} from './exercisesActions';
+import {fetchLatestBCValue, incrementCounter, selectBCCurrency, setBcConversionInput, switchBCConversionDirection} from './exercisesActions';
 
 function ExercisesPage(props) {
 
@@ -29,7 +22,7 @@ function ExercisesPage(props) {
     const bcConversionInput = props.bcConversionInput;
     const bcConversionCurrency = props.bcConversionCurrency;
     const bcConversionDirection = props.bcConversionDirection;
-    const bcValue = props.bcValue; 
+    const bcValue = props.bcValue;
     const bcLastUpdatedTime = props.bcLastUpdatedTime;
     const bcFetching = props.bcFetching;
 
@@ -41,71 +34,71 @@ function ExercisesPage(props) {
     const switchConversionButtonText = left + ' -> ' + right;
 
     return (
-    <div className="exercises-page">
-        <h1>Exercises</h1>
-        
-        { /* Exercise 1 */ }
-        <h3>1) Counter</h3>
-        <div className="exercise">
-            <p>Update the reducer to increment the counter by one every time the button is clicked.</p>
-            <button onClick={incrementCounter}>{`Clicked: ${counter} time(s)`}</button>
-        </div>
+        <div className="exercises-page">
+            <h1>Exercises</h1>
 
-        { /* Exercise 2 */ }
-        <h3>2) Bitcoin price</h3>
-        <div className="exercise">
-            <p>Show the current bit-coin price from the store. Convert the input to the converted value.</p>
+            {/* Exercise 1 */}
+            <h3>1) Counter</h3>
+            <div className="exercise">
+                <p>Update the reducer to increment the counter by one every time the button is clicked.</p>
+                <button onClick={incrementCounter}>{`Clicked: ${counter} time(s)`}</button>
+            </div>
 
-            <input className="input-currency"
-                type="number"
-                value={bcConversionInput}
-                onChange={(e) => setBcConversionInput(e.target.value) }/>
+            {/* Exercise 2 */}
+            <h3>2) Bitcoin price</h3>
+            <div className="exercise">
+                <p>Show the current bit-coin price from the store. Convert the input to the converted value.</p>
 
-            <span>{ left } {' '} =</span>
-        
-            <div className="value-field">{ '€ ' + bcValueConverted }</div>
-            { right }
-        </div>
+                <input className="input-currency"
+                       type="number"
+                       value={bcConversionInput}
+                       onChange={(e) => setBcConversionInput(e.target.value)}/>
 
-        {/* Exercise 3 */}
-        <h3>3) Fetch Latest Value</h3>
-        <div className="exercise">
-            <p>Fetch the current bit-coin price. The saga in exerciseSagas.js can be used to handle the API request.</p>
-            <button onClick={fetchLatestBCValue}>Update</button>
-        </div>
+                <span>{left} {' '} =</span>
 
-        {/* Exercise 4 */}
-        <h3>4) Currencies</h3>
-        <div className="exercise">
-            <p>switch which currency to use</p>
-            <select
-                value={bcConversionCurrency}
-                name="currency"
-                onChange={(e) => selectBCCurrency(e.target.value)}>
+                <div className="value-field">{'€ ' + bcValueConverted}</div>
+                {right}
+            </div>
 
-                <option>USD</option>
-                <option>GBP</option>
-                <option>EUR</option>
-            </select>
-        </div>
+            {/* Exercise 3 */}
+            <h3>3) Fetch Latest Value</h3>
+            <div className="exercise">
+                <p>Fetch the current bit-coin price. The saga in exerciseSagas.js can be used to handle the API request.</p>
+                <button onClick={fetchLatestBCValue}>Update</button>
+            </div>
 
-        {/* Exercise 5 */}
-        <h3>5) Conversion Direction</h3>
-        <div className="exercise">
-            <p>Switch the conversion direction.</p>
-            <button onClick={() => switchBCConversionDirection()}>
-                { switchConversionButtonText }
-            </button>
-        </div>
+            {/* Exercise 4 */}
+            <h3>4) Currencies</h3>
+            <div className="exercise">
+                <p>switch which currency to use</p>
+                <select
+                    value={bcConversionCurrency}
+                    name="currency"
+                    onChange={(e) => selectBCCurrency(e.target.value)}>
 
-        {/* Exercise 6 */}
-        <h3>6) Updated / Fetching</h3>
-        <div className="exercise">
-            <p>Show the last-updated time, and currently fetching status.</p>
-            Last updated at: <div className="value-field">{ bcLastUpdatedTime }</div>
-            Fetching: <div className="value-field">{ '' + bcFetching }</div>
-        </div>
-    </div>);
+                    <option>USD</option>
+                    <option>GBP</option>
+                    <option>EUR</option>
+                </select>
+            </div>
+
+            {/* Exercise 5 */}
+            <h3>5) Conversion Direction</h3>
+            <div className="exercise">
+                <p>Switch the conversion direction.</p>
+                <button onClick={() => switchBCConversionDirection()}>
+                    {switchConversionButtonText}
+                </button>
+            </div>
+
+            {/* Exercise 6 */}
+            <h3>6) Updated / Fetching</h3>
+            <div className="exercise">
+                <p>Show the last-updated time, and currently fetching status.</p>
+                Last updated at: <div className="value-field">{bcLastUpdatedTime}</div>
+                Fetching: <div className="value-field">{'' + bcFetching}</div>
+            </div>
+        </div>);
 }
 
 ExercisesPage.propTypes = {
@@ -128,7 +121,7 @@ function mapStateToProps(state) {
         bcConversionDirection: false, // TOOD
         bcLastUpdatedTime: '???', // TODO
         bcFetching: false // TODO
-    } 
+    }
 }
 
 export default connect(

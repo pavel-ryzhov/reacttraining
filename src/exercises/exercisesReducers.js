@@ -1,8 +1,8 @@
 import Imm from 'immutable';
 import ActionTypes from './exercisesActions';
 
-export default function(state = Imm.Map(), action) {
-    switch(action.type) {
+export default function (state = Imm.Map(), action) {
+    switch (action.type) {
         case ActionTypes.INCREMENT_COUNTER:
             return incrementCounter(state, action);
         case ActionTypes.SET_BC_CONVERSION_INPUT:

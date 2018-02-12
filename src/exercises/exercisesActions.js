@@ -30,14 +30,17 @@ export function setBcConversionInput(value) {
 
 /** This should trigger the saga to begin fetching */
 export function fetchLatestBCValue() {
-    return { type: 'DO_NOTHING' } /* TODO */
+    return {type: 'DO_NOTHING'}
+    /* TODO */
 }
 
 export function selectBCCurrency(currency) {
-    return { type: 'DO_NOTHING' } /* TODO */
+    return {type: 'DO_NOTHING'}
+    /* TODO */
 }
 
 export function switchBCConversionDirection() {
-     return { type: 'DO_NOTHING' } /* TODO */
+    return {type: 'DO_NOTHING'}
+    /* TODO */
 }
 
